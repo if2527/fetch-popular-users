@@ -6,17 +6,10 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [inputValue, setInputValue] = useState('');
 
-  let location;
-  if(inputValue !== '') {
-    location = inputValue.trim()
-  } else {
-    location = 'any'
-  }
-
-  async function fetchUsers() {
+  async function fetchUsers(url) {
     setLoading(true);
     try {
-      let response = await fetch(`https://api.github.com/search/users?q=location%3A${location}&feature+sort%3Afollowers&type=Users?page=1&per_page=10`);
+      let response = await fetch(url);
       response = await response.json();
 
       if (response.items && response.items.length > 0) {
@@ -42,7 +35,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    fetchUsers();
+    fetchUsers('https://api.github.com/search/users?q=feature+sort%3Afollowers&type=Users?page=1&per_page=10');
     // eslint-disable-next-line
   }, []);
 
@@ -53,10 +46,9 @@ const App = () => {
   const handleSubmit = e => {
       e.preventDefault();
       setUsers([]);
-      fetchUsers();
-      console.log('END');
+      fetchUsers(`https://api.github.com/search/users?q=location%3A${inputValue.trim()}&feature+sort%3Afollowers&type=Users?page=1&per_page=10`);
   }
-
+  console.log(users);
   return (
     <Wrapper>
       <Title>10 most followed users on GitHub:</Title>
