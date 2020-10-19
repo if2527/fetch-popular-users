@@ -18,7 +18,8 @@ export const Title = styled.h1`
 `;
 
 export const Wrapper = styled.div`
-  max-width: 900px;
+  padding: 30px 15px;
+  max-width: 600px;
   margin: 0 auto;
 `;
 
