@@ -13,6 +13,36 @@ export const Avatar = styled.div`
   }
 `;
 
+export const Title = styled.h1`
+  text-align: center;
+`;
+
+export const Wrapper = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+`;
+
+export const UserItem = styled.div`
+  flex-grow: 1;
+  display: flex;
+  padding: 20px 0;
+  background: light-grey;
+  border-bottom: 1px solid grey;
+`;
+
+export const ItemWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  > span {
+    margin-right: 20px;
+  }
+  &:last-child {
+    ${UserItem} {
+      border-bottom: none;
+    }
+  }
+`;
+
 export const Login = styled.a`
   color: blue;
   margin-right: 5px;
@@ -30,16 +60,6 @@ export const Email = styled.div`
 
 export const Bio = styled.div`
   margin: 5px 0;
-`;
-
-export const UserItem = styled.div`
-  display: flex;
-  padding: 20px 0;
-  background: light-grey;
-  border-bottom: 1px solid grey;
-  &:first-child {
-    border-top: 1px solid grey;
-  }
 `;
 
 export const Header = styled.div`
